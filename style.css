@@ -1,3 +1,7 @@
+/* =========================================================
+   ESTILO GERAL — PRODUÇÃO DE CARROS ELÉTRICOS NO BRASIL
+   ========================================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,59 +13,86 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #f0f4f8;
-    color: #1a252c;
+    background: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+    color: #17202a;
 }
 
-/* Cabeçalho Tecnológico / Verde Eco */
+/* =========================================================
+   CABEÇALHO — TECNOLOGIA + SUSTENTABILIDADE
+   ========================================================= */
+
 .cabecalho {
-    padding: 15px 30px;
+    padding: 18px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #0d47a1; /* Azul elétrico */
-    border-bottom: 4px solid #00e676; /* Detalhe em verde sustentável */
+
+    background: linear-gradient(90deg, #0b3d2e, #087f5b, #0d47a1);
+
+    border-bottom: 4px solid #00e676;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
 
 h1 {
     color: #ffffff;
-    font-size: 24px;
+    font-size: 25px;
     font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .cabecalho-link {
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
 }
 
 .cabecalho-link:hover {
-    color: #00e676;
+    color: #69f0ae;
+    transform: scale(1.05);
 }
 
-/* Conteúdo Principal */
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+   ========================================================= */
+
 main {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
+    padding: 45px 20px;
 }
 
-section {
+.subtitulo {
+    color: #0b3d2e;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* =========================================================
+   CONTAINER DOS CARTÕES
+   ========================================================= */
+
+.container-cartoes {
     display: flex;
-    gap: 24px;
+    gap: 28px;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 35px;
+    max-width: 1250px;
 }
 
-/* Estrutura do Flashcard em 3D */
+/* =========================================================
+   FLASHCARD 3D
+   ========================================================= */
+
 .cartao {
     width: 280px;
-    height: 380px;
-    perspective: 1000px; /* Garante o efeito de profundidade no giro */
+    height: 390px;
+    perspective: 1000px;
     cursor: pointer;
 }
 
@@ -69,6 +100,7 @@ section {
     position: relative;
     width: 100%;
     height: 100%;
+
     transition: transform 0.8s ease-in-out;
     transform-style: preserve-3d;
 }
@@ -77,26 +109,197 @@ section {
     transform: rotateY(180deg);
 }
 
-.cartao-frente, 
+/* =========================================================
+   FRENTE E VERSO
+   ========================================================= */
+
+.cartao-frente,
 .cartao-verso {
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 16px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.14),
+        0 0 0 1px rgba(0, 230, 118, 0.08);
+
     backface-visibility: hidden;
-    background-color: #ffffff;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
     justify-content: space-between;
+
+    padding: 20px;
+
     text-align: center;
 }
+
+/* Frente */
+
+.cartao-frente {
+    background: linear-gradient(
+        160deg,
+        #ffffff,
+        #f1f8f5
+    );
+
+    border-top: 5px solid #00c853;
+}
+
+/* Verso */
+
+.cartao-verso {
+    background: linear-gradient(
+        160deg,
+        #0b3d2e,
+        #087f5b
+    );
+
+    color: #ffffff;
+
+    transform: rotateY(180deg);
+
+    border-top: 5px solid #69f0ae;
+}
+
+/* =========================================================
+   IMAGENS DOS CARROS
+   ========================================================= */
 
 .cartao-imagem {
     width: 100%;
     height: 180px;
+
     object-fit: cover;
-    border-radius: 10px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.18);
+
+    transition: transform 0.3s ease;
 }
+
+.cartao:hover .cartao-imagem {
+    transform: scale(1.03);
+}
+
+/* =========================================================
+   TEXTO DOS CARTÕES
+   ========================================================= */
+
+.cartao-texto {
+    font-size: 17px;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+.cartao-frente .cartao-texto {
+    color: #263238;
+}
+
+.cartao-verso .cartao-texto {
+    color: #ffffff;
+}
+
+/* =========================================================
+   BADGES — VERDADEIRO / FALSO / MITO
+   ========================================================= */
+
+.badge {
+    padding: 8px 18px;
+    border-radius: 30px;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+}
+
+/* Verdadeiro */
+
+.badge-verdadeiro {
+    background-color: #00e676;
+    color: #073b28;
+
+    box-shadow: 0 4px 10px rgba(0, 230, 118, 0.3);
+}
+
+/* Falso */
+
+.badge-falso {
+    background-color: #ff5252;
+    color: #ffffff;
+
+    box-shadow: 0 4px 10px rgba(255, 82, 82, 0.3);
+}
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+.rodape {
+    padding: 20px;
+
+    text-align: center;
+
+    background-color: #0b3d2e;
+
+    color: #ffffff;
+
+    border-top: 3px solid #00e676;
+
+    font-size: 14px;
+}
+
+.rodape strong {
+    color: #69f0ae;
+}
+
+/* =========================================================
+   EFEITO DE DESTAQUE NOS CARTÕES
+   ========================================================= */
+
+.cartao:hover {
+    transform: translateY(-8px);
+    transition: transform 0.3s ease;
+}
+
+/* =========================================================
+   RESPONSIVIDADE — CELULARES
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .cabecalho {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 21px;
+    }
+
+    main {
+        padding: 30px 15px;
+    }
+
+    .subtitulo {
+        font-size: 18px;
+    }
+
+    .container-cartoes {
+        gap: 20px;
+    }
+
+    .cartao {
+        width: 290px;
+        height: 390px;
+    }
+}
+
